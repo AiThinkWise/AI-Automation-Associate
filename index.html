@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Clinic Automation Pilot - Solution Design</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">AI Automation</div>
+            <ul class="nav-links">
+                <li><a href="#scoping">Scoping</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#technical">Technical</a></li>
+                <li><a href="#deployment">Deployment</a></li>
+                <li><a href="#metrics">Metrics</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-badge">30-Day Pilot Design</div>
+            <h1 class="hero-title">Reducing Missed Calls & No-Shows</h1>
+            <p class="hero-subtitle">A privacy-first automation solution for a 3-chair dental clinic</p>
+            <div class="hero-meta">
+                <span>Deployment: 1 week</span>
+                <span>•</span>
+                <span>Pilot: 30 days</span>
+                <span>•</span>
+                <span>ROI: Measurable</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Scoping Section -->
+    <section id="scoping" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">Problem Scoping</h2>
+                <p class="section-description">Understanding the current state and defining success metrics</p>
+            </div>
+
+            <div class="tabs-container">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="current-state">Current State</button>
+                    <button class="tab-btn" data-tab="pain-points">Pain Points</button>
+                    <button class="tab-btn" data-tab="goals">Goals & Success</button>
+                </div>
+
+                <div class="tab-content active" id="current-state">
+                    <div class="content-grid">
+                        <div class="info-card">
+                            <div class="info-icon">📞</div>
+                            <h3>Call Handling</h3>
+                            <p>Basic traditional phone system with no after-hours coverage. Calls during peak hours often go unanswered.</p>
+                            <ul class="info-list">
+                                <li>No overflow handling</li>
+                                <li>No voicemail automation</li>
+                                <li>Manual call logging</li>
+                            </ul>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">📅</div>
+                            <h3>Scheduling System</h3>
+                            <p>Google Calendar for appointments. No automated confirmations or reminders.</p>
+                            <ul class="info-list">
+                                <li>Manual appointment entry</li>
+                                <li>No patient communication automation</li>
+                                <li>Calendar-only scheduling</li>
+                            </ul>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">👥</div>
+                            <h3>Staff Setup</h3>
+                            <p>3-chair clinic with limited front desk capacity. Staff handles calls while managing in-clinic patients.</p>
+                            <ul class="info-list">
+                                <li>Multi-tasking challenges</li>
+                                <li>No dedicated call center</li>
+                                <li>Limited bandwidth for follow-ups</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="pain-points">
+                    <div class="pain-points-grid">
+                        <div class="pain-card critical">
+                            <div class="pain-header">
+                                <span class="pain-label">Critical</span>
+                                <h3>Lost New Patients</h3>
+                            </div>
+                            <p class="pain-description">Missed calls = lost revenue. New patients call once; if unanswered, they move to competitors.</p>
+                            <div class="pain-impact">
+                                <strong>Impact:</strong> Estimated 15-20% of new patient inquiries lost
+                            </div>
+                        </div>
+                        <div class="pain-card critical">
+                            <div class="pain-header">
+                                <span class="pain-label">Critical</span>
+                                <h3>25% No-Show Rate</h3>
+                            </div>
+                            <p class="pain-description">One in four patients don't show up, causing revenue loss and scheduling inefficiency.</p>
+                            <div class="pain-impact">
+                                <strong>Impact:</strong> ~$X,XXX monthly revenue loss + wasted chair time
+                            </div>
+                        </div>
+                        <div class="pain-card moderate">
+                            <div class="pain-header">
+                                <span class="pain-label">Moderate</span>
+                                <h3>Staff Overload</h3>
+                            </div>
+                            <p class="pain-description">Front desk juggles calls, appointments, and in-clinic patients simultaneously.</p>
+                            <div class="pain-impact">
+                                <strong>Impact:</strong> Reduced service quality, increased stress
+                            </div>
+                        </div>
+                        <div class="pain-card moderate">
+                            <div class="pain-header">
+                                <span class="pain-label">Moderate</span>
+                                <h3>No Proactive Communication</h3>
+                            </div>
+                            <p class="pain-description">No automated reminders or confirmations. Patients forget appointments.</p>
+                            <div class="pain-impact">
+                                <strong>Impact:</strong> Contributes to high no-show rate
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="goals">
+                    <div class="goals-container">
+                        <div class="goal-card primary">
+                            <div class="goal-icon">🎯</div>
+                            <h3>Primary Goals</h3>
+                            <ul class="goal-list">
+                                <li><strong>Reduce missed calls</strong> by 80%+ through after-hours/overflow handling</li>
+                                <li><strong>Reduce no-show rate</strong> from 25% to <15% through automated reminders</li>
+                                <li><strong>Zero disruption</strong> to existing practice management system</li>
+                            </ul>
+                        </div>
+                        <div class="goal-card secondary">
+                            <div class="goal-icon">📊</div>
+                            <h3>Success Metrics</h3>
+                            <div class="metrics-preview">
+                                <div class="metric-item">
+                                    <span class="metric-label">Call Answer Rate</span>
+                                    <span class="metric-value">80%+ (vs. current ~60%)</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">No-Show Rate</span>
+                                    <span class="metric-value"><15% (vs. current 25%)</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">Appointments Created</span>
+                                    <span class="metric-value">Track automated bookings</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">Patient Response Rate</span>
+                                    <span class="metric-value">Track reminder engagement</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Design Section -->
+    <section id="solution" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">Solution Design</h2>
+                <p class="section-description">A privacy-first, reversible automation approach</p>
+            </div>
+
+            <div class="architecture-diagram">
+                <div class="arch-title">System Architecture</div>
+                <div class="arch-flow">
+                    <div class="arch-component">
+                        <div class="arch-icon">📞</div>
+                        <h4>Voice AI</h4>
+                        <p>After-hours & overflow call handling</p>
+                    </div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-component">
+                        <div class="arch-icon">⚙️</div>
+                        <h4>n8n Automation</h4>
+                        <p>Workflow orchestration</p>
+                    </div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-component">
+                        <div class="arch-icon">📅</div>
+                        <h4>Google Calendar</h4>
+                        <p>Appointment management</p>
+                    </div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-component">
+                        <div class="arch-icon">💬</div>
+                        <h4>WhatsApp Business</h4>
+                        <p>Patient communication</p>
+                    </div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-component">
+                        <div class="arch-icon">📊</div>
+                        <h4>Analytics</h4>
+                        <p>Metrics tracking</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-cards">
+                <div class="solution-card">
+                    <div class="solution-header">
+                        <div class="solution-icon">🎤</div>
+                        <h3>Voice AI Integration</h3>
+                    </div>
+                    <div class="solution-content">
+                        <p><strong>Purpose:</strong> Handle missed calls and after-hours inquiries</p>
+                        <ul>
+                            <li>Answer calls when staff unavailable</li>
+                            <li>Collect appointment details via conversation</li>
+                            <li>Check calendar availability in real-time</li>
+                            <li>Create appointments automatically</li>
+                        </ul>
+                        <div class="solution-note">
+                            <strong>Why this approach:</strong> Reversible, low-risk start. Can begin with overflow/after-hours only before full coverage.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-header">
+                        <div class="solution-icon">💬</div>
+                        <h3>Automated Confirmations</h3>
+                    </div>
+                    <div class="solution-content">
+                        <p><strong>Purpose:</strong> Confirm appointments immediately after booking</p>
+                        <ul>
+                            <li>Triggered when appointment created in Calendar</li>
+                            <li>WhatsApp message with appointment details</li>
+                            <li>Patient can confirm or request reschedule</li>
+                            <li>No PHI stored outside clinic systems</li>
+                        </ul>
+                        <div class="solution-note">
+                            <strong>Why WhatsApp:</strong> High open rates (98%+), familiar to patients, supports two-way communication.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-header">
+                        <div class="solution-icon">⏰</div>
+                        <h3>Smart Reminders</h3>
+                    </div>
+                    <div class="solution-content">
+                        <p><strong>Purpose:</strong> Reduce no-shows through timely reminders</p>
+                        <ul>
+                            <li>24-hour reminder (day before appointment)</li>
+                            <li>2-hour reminder (same-day confirmation)</li>
+                            <li>Automated scheduling via n8n</li>
+                            <li>Track reminder delivery and responses</li>
+                        </ul>
+                        <div class="solution-note">
+                            <strong>Why two reminders:</strong> 24h gives time to reschedule, 2h reduces same-day no-shows.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-header">
+                        <div class="solution-icon">🔒</div>
+                        <h3>Privacy-First Design</h3>
+                    </div>
+                    <div class="solution-content">
+                        <p><strong>Principle:</strong> No PHI stored outside clinic systems</p>
+                        <ul>
+                            <li>Google Calendar remains source of truth</li>
+                            <li>n8n only passes minimal identifiers</li>
+                            <li>Analytics track metrics, not patient data</li>
+                            <li>All workflows reversible without data loss</li>
+                        </ul>
+                        <div class="solution-note">
+                            <strong>Compliance:</strong> PHI stays in Google Calendar. Only appointment times and confirmation status tracked in analytics.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Implementation Section -->
+    <section id="technical" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Technical Implementation</h2>
+                <p class="section-description">Real-world n8n workflows and integration architecture</p>
+            </div>
+
+            <div class="workflow-selector">
+                <button class="workflow-btn active" data-workflow="voice-ai">Workflow 1: Voice AI → Booking</button>
+                <button class="workflow-btn" data-workflow="confirmation">Workflow 2: Auto Confirmation</button>
+                <button class="workflow-btn" data-workflow="reminders">Workflow 3: Smart Reminders</button>
+            </div>
+
+            <!-- Workflow 1: Voice AI -->
+            <div class="workflow-content active" id="voice-ai">
+                <div class="workflow-header">
+                    <h3>Voice AI → Appointment Booking</h3>
+                    <p>Handles after-hours and overflow calls, creates appointments automatically</p>
+                </div>
+                <div class="workflow-diagram">
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Webhook Trigger</h4>
+                            <p>Receive call data from Voice AI provider</p>
+                            <code>POST /voice-ai-callback</code>
+                        </div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Time Check</h4>
+                            <p>Verify if after-hours or overflow call</p>
+                            <code>IF time < 8 AM OR > 6 PM</code>
+                        </div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Extract Data</h4>
+                            <p>Parse appointment details from transcript</p>
+                            <code>Patient name, date, time, phone</code>
+                        </div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Check Availability</h4>
+                            <p>Query Google Calendar for slot</p>
+                            <code>GET /calendar/events</code>
+                        </div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Create Appointment</h4>
+                            <p>If available, create event in Calendar</p>
+                            <code>POST /calendar/events</code>
+                        </div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h4>Send Confirmation</h4>
+                            <p>WhatsApp message to patient</p>
+                            <code>POST /whatsapp/messages</code>
+                        </div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="step-number">7</div>
+                        <div class="step-content">
+                            <h4>Log Analytics</h4>
+                            <p>Track event (no PHI)</p>
+                            <code>POST /analytics/log</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="workflow-details">
+                    <h4>Key Features:</h4>
+                    <ul>
+                        <li>Error handling: If slot unavailable, suggest alternatives via WhatsApp</li>
+                        <li>Fallback: Admin notification if API fails</li>
+                        <li>Privacy: Only appointment time logged, no patient details</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Workflow 2: Confirmation -->
+            <div class="workflow-content" id="confirmation">
+                <div class="workflow-header">
+                    <h3>Auto Confirmation Workflow</h3>
+                    <p>Automatically confirms new appointments via WhatsApp</p>
+                </div>
+                <div class="workflow-diagram">
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Calendar Trigger</h4>
+                            <p>Watch for new events created</p>
+                            <code>Google Calendar Trigger</code>
+                        </div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Filter Appointments</h4>
+                            <p>Check if event is patient appointment</p>
+                            <code>IF summary contains "Appointment"</code>
+                        </div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Extract Contact</h4>
+                            <p>Get patient phone from event</p>
+                            <code>Parse description/attendees</code>
+                        </div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Wait 5 Minutes</h4>
+                            <p>Allow staff to add details</p>
+                            <code>Wait node</code>
+                        </div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Send Confirmation</h4>
+                            <p>WhatsApp message with details</p>
+                            <code>POST /whatsapp/messages</code>
+                        </div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h4>Update Analytics</h4>
+                            <p>Log confirmation sent</p>
+                            <code>POST /analytics/log</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="workflow-details">
+                    <h4>Key Features:</h4>
+                    <ul>
+                        <li>Real-time trigger: Instant confirmation when appointment created</li>
+                        <li>Buffer time: 5-minute delay allows staff to add patient details</li>
+                        <li>Two-way: Patient can reply CONFIRM or RESCHEDULE</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Workflow 3: Reminders -->
+            <div class="workflow-content" id="reminders">
+                <div class="workflow-header">
+                    <h3>Smart Reminders Workflow</h3>
+                    <p>Scheduled reminders 24h and 2h before appointments</p>
+                </div>
+                <div class="workflow-diagram">
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Schedule Trigger</h4>
+                            <p>Run every hour</p>
+                            <code>Cron: "0 * * * *"</code>
+                        </div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Get Upcoming Events</h4>
+                            <p>Query Calendar for next 26 hours</p>
+                            <code>GET /calendar/events</code>
+                        </div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Filter Reminders</h4>
+                            <p>Calculate time until appointment</p>
+                            <code>Check if 24h or 2h reminder needed</code>
+                        </div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Send 24h Reminder</h4>
+                            <p>If 23-25 hours until appointment</p>
+                            <code>POST /whatsapp/messages</code>
+                        </div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Send 2h Reminder</h4>
+                            <p>If 1.5-2.5 hours until appointment</p>
+                            <code>POST /whatsapp/messages</code>
+                        </div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h4>Log Reminder</h4>
+                            <p>Track reminder type and timestamp</p>
+                            <code>POST /analytics/log</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="workflow-details">
+                    <h4>Key Features:</h4>
+                    <ul>
+                        <li>Dual reminders: 24h for rescheduling, 2h for same-day confirmation</li>
+                        <li>Deduplication: Check analytics to avoid duplicate reminders</li>
+                        <li>Batch processing: Handle multiple appointments efficiently</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="integration-details">
+                <h3>Integration Setup</h3>
+                <div class="integration-grid">
+                    <div class="integration-item">
+                        <h4>Google Calendar API</h4>
+                        <ul>
+                            <li>OAuth2 authentication</li>
+                            <li>Read events, create events</li>
+                            <li>Real-time triggers</li>
+                        </ul>
+                    </div>
+                    <div class="integration-item">
+                        <h4>WhatsApp Business API</h4>
+                        <ul>
+                            <li>Meta Business Account</li>
+                            <li>Approved message templates</li>
+                            <li>Two-way messaging</li>
+                        </ul>
+                    </div>
+                    <div class="integration-item">
+                        <h4>Voice AI Provider</h4>
+                        <ul>
+                            <li>Webhook configuration</li>
+                            <li>NLP entity extraction</li>
+                            <li>Call transcript processing</li>
+                        </ul>
+                    </div>
+                    <div class="integration-item">
+                        <h4>Analytics (Google Sheets)</h4>
+                        <ul>
+                            <li>Real-time logging</li>
+                            <li>No PHI storage</li>
+                            <li>Dashboard visualization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deployment Plan Section -->
+    <section id="deployment" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">Deployment Plan</h2>
+                <p class="section-description">One-week setup, 30-day pilot with measurable outcomes</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker week1"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Week 1: Setup & Configuration</h3>
+                            <span class="timeline-duration">Days 1-7</span>
+                        </div>
+                        <div class="timeline-tasks">
+                            <div class="task-item">
+                                <span class="task-day">Day 1-2</span>
+                                <div class="task-details">
+                                    <strong>n8n Instance Setup</strong>
+                                    <p>Deploy n8n (cloud or self-hosted), configure credentials, test basic workflows</p>
+                                </div>
+                            </div>
+                            <div class="task-item">
+                                <span class="task-day">Day 2-3</span>
+                                <div class="task-details">
+                                    <strong>API Integrations</strong>
+                                    <p>Connect Google Calendar, WhatsApp Business API, Voice AI provider. Test authentication</p>
+                                </div>
+                            </div>
+                            <div class="task-item">
+                                <span class="task-day">Day 3-4</span>
+                                <div class="task-details">
+                                    <strong>Workflow Development</strong>
+                                    <p>Build and test all three workflows. Implement error handling and fallbacks</p>
+                                </div>
+                            </div>
+                            <div class="task-item">
+                                <span class="task-day">Day 4-5</span>
+                                <div class="task-details">
+                                    <strong>Analytics Setup</strong>
+                                    <p>Configure Google Sheets for metrics tracking. Create dashboard views</p>
+                                </div>
+                            </div>
+                            <div class="task-item">
+                                <span class="task-day">Day 5-6</span>
+                                <div class="task-details">
+                                    <strong>Testing & Validation</strong>
+                                    <p>End-to-end testing with test data. Verify all integrations work correctly</p>
+                                </div>
+                            </div>
+                            <div class="task-item">
+                                <span class="task-day">Day 6-7</span>
+                                <div class="task-details">
+                                    <strong>Staff Training</strong>
+                                    <p>5-minute overview session. Document how to disable workflows if needed</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker week2"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Week 2-4: Pilot Phase</h3>
+                            <span class="timeline-duration">Days 8-30</span>
+                        </div>
+                        <div class="timeline-tasks">
+                            <div class="task-item">
+                                <span class="task-day">Week 2</span>
+                                <div class="task-details">
+                                    <strong>Soft Launch</strong>
+                                    <p>Start with after-hours calls only. Monitor closely, gather feedback</p>
+                                </div>
+                            </div>
+                            <div class="task-item">
+                                <span class="task-day">Week 2-3</span>
+                                <div class="task-details">
+                                    <strong>Full Activation</strong>
+                                    <p>Enable overflow handling and all reminder workflows. Track metrics daily</p>
+                                </div>
+                            </div>
+                            <div class="task-item">
+                                <span class="task-day">Week 3-4</span>
+                                <div class="task-details">
+                                    <strong>Optimization</strong>
+                                    <p>Fine-tune based on data. Adjust reminder timing if needed. Address any issues</p>
+                                </div>
+                            </div>
+                            <div class="task-item">
+                                <span class="task-day">Week 4</span>
+                                <div class="task-details">
+                                    <strong>ROI Analysis</strong>
+                                    <p>Compare metrics: before vs. after. Calculate revenue impact. Prepare report</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="deployment-notes">
+                <h3>Deployment Principles</h3>
+                <div class="notes-grid">
+                    <div class="note-card">
+                        <h4>🔄 Reversible</h4>
+                        <p>All workflows can be disabled instantly without data loss. Google Calendar remains source of truth.</p>
+                    </div>
+                    <div class="note-card">
+                        <h4>🛡️ Safe</h4>
+                        <p>Start with overflow/after-hours only. Expand gradually based on comfort and results.</p>
+                    </div>
+                    <div class="note-card">
+                        <h4>👥 Low-Friction</h4>
+                        <p>Minimal staff training required. Works alongside existing systems. No workflow changes needed.</p>
+                    </div>
+                    <div class="note-card">
+                        <h4>📊 Measurable</h4>
+                        <p>Real-time analytics dashboard. Daily metrics tracking. Clear before/after comparison.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics & ROI Section -->
+    <section id="metrics" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title">Metrics & Expected ROI</h2>
+                <p class="section-description">Quantifiable outcomes and business impact</p>
+            </div>
+
+            <div class="metrics-dashboard">
+                <div class="dashboard-header">
+                    <h3>30-Day Pilot Metrics Dashboard</h3>
+                    <div class="dashboard-toggle">
+                        <button class="toggle-btn active" data-view="before">Before</button>
+                        <button class="toggle-btn" data-view="after">After (Expected)</button>
+                    </div>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <h4>Call Answer Rate</h4>
+                            <span class="metric-trend up">↑</span>
+                        </div>
+                        <div class="metric-value before">60%</div>
+                        <div class="metric-value after">85%+</div>
+                        <div class="metric-change">+25% improvement</div>
+                        <p class="metric-description">After-hours and overflow calls now handled by Voice AI</p>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <h4>No-Show Rate</h4>
+                            <span class="metric-trend down">↓</span>
+                        </div>
+                        <div class="metric-value before">25%</div>
+                        <div class="metric-value after">12-15%</div>
+                        <div class="metric-change">-40% reduction</div>
+                        <p class="metric-description">Automated reminders reduce forgotten appointments</p>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <h4>Appointments Created</h4>
+                            <span class="metric-trend up">↑</span>
+                        </div>
+                        <div class="metric-value before">~80/month</div>
+                        <div class="metric-value after">~95/month</div>
+                        <div class="metric-change">+15 new bookings</div>
+                        <p class="metric-description">Captured calls that would have been missed</p>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <h4>Reminder Engagement</h4>
+                            <span class="metric-trend up">↑</span>
+                        </div>
+                        <div class="metric-value before">0%</div>
+                        <div class="metric-value after">70%+</div>
+                        <div class="metric-change">New capability</div>
+                        <p class="metric-description">Patients confirm or reschedule proactively</p>
+                    </div>
+                </div>
+
+                <div class="roi-calculation">
+                    <h3>ROI Calculation (Estimated)</h3>
+                    <div class="roi-grid">
+                        <div class="roi-item">
+                            <h4>Revenue Impact</h4>
+                            <div class="roi-details">
+                                <div class="roi-line">
+                                    <span>Reduced no-shows (10% reduction)</span>
+                                    <strong>+$X,XXX/month</strong>
+                                </div>
+                                <div class="roi-line">
+                                    <span>Captured missed calls (15 new bookings)</span>
+                                    <strong>+$X,XXX/month</strong>
+                                </div>
+                                <div class="roi-line total">
+                                    <span>Total Monthly Revenue Increase</span>
+                                    <strong>+$X,XXX/month</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="roi-item">
+                            <h4>Cost Structure</h4>
+                            <div class="roi-details">
+                                <div class="roi-line">
+                                    <span>Voice AI service</span>
+                                    <strong>$XX/month</strong>
+                                </div>
+                                <div class="roi-line">
+                                    <span>WhatsApp Business API</span>
+                                    <strong>$XX/month</strong>
+                                </div>
+                                <div class="roi-line">
+                                    <span>n8n hosting</span>
+                                    <strong>$XX/month</strong>
+                                </div>
+                                <div class="roi-line total">
+                                    <span>Total Monthly Cost</span>
+                                    <strong>$XXX/month</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="roi-summary">
+                        <strong>Expected ROI:</strong> Positive within first month. Break-even at ~X appointments saved.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risk Mitigation Section -->
+    <section id="risks" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2 class="section-title">Risk Mitigation</h2>
+                <p class="section-description">Proactive approach to potential challenges</p>
+            </div>
+
+            <div class="risks-grid">
+                <div class="risk-card">
+                    <div class="risk-header">
+                        <span class="risk-severity low">Low</span>
+                        <h3>Technical Failures</h3>
+                    </div>
+                    <p class="risk-description">API downtime, workflow errors, integration issues</p>
+                    <div class="risk-mitigation">
+                        <strong>Mitigation:</strong>
+                        <ul>
+                            <li>Error handling in all workflows with retry logic</li>
+                            <li>Fallback notifications to admin email</li>
+                            <li>Daily monitoring during first week</li>
+                            <li>All workflows reversible without data loss</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="risk-card">
+                    <div class="risk-header">
+                        <span class="risk-severity low">Low</span>
+                        <h3>Patient Privacy Concerns</h3>
+                    </div>
+                    <p class="risk-description">PHI handling, data storage, compliance issues</p>
+                    <div class="risk-mitigation">
+                        <strong>Mitigation:</strong>
+                        <ul>
+                            <li>No PHI stored outside Google Calendar</li>
+                            <li>Analytics track metrics only, not patient data</li>
+                            <li>WhatsApp messages use approved templates</li>
+                            <li>All data flows documented and auditable</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="risk-card">
+                    <div class="risk-header">
+                        <span class="risk-severity medium">Medium</span>
+                        <h3>Staff Resistance</h3>
+                    </div>
+                    <p class="risk-description">Unfamiliarity, fear of change, workflow disruption</p>
+                    <div class="risk-mitigation">
+                        <strong>Mitigation:</strong>
+                        <ul>
+                            <li>5-minute training session, not overwhelming</li>
+                            <li>Start with after-hours only (no disruption)</li>
+                            <li>Emphasize it's reversible anytime</li>
+                            <li>Show immediate benefits (fewer missed calls)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="risk-card">
+                    <div class="risk-header">
+                        <span class="risk-severity low">Low</span>
+                        <h3>Low Adoption/Engagement</h3>
+                    </div>
+                    <p class="risk-description">Patients don't respond to reminders, low WhatsApp usage</p>
+                    <div class="risk-mitigation">
+                        <strong>Mitigation:</strong>
+                        <ul>
+                            <li>WhatsApp has 98%+ open rates (better than SMS)</li>
+                            <li>Fallback to SMS if WhatsApp unavailable</li>
+                            <li>Track engagement and adjust messaging if needed</li>
+                            <li>Even unread reminders reduce no-shows (awareness)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>This solution design demonstrates a real-world approach to automation that is <strong>privacy-first, reversible, and measurable</strong>.</p>
+                <p class="footer-note">Created and designed by Van</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
